@@ -1,0 +1,10 @@
+{"namespace": "com.converter",
+ "type": "record",
+ "name": "WriteUserSchema",
+ "fields": [
+     {"name": "id", "type": "int"},
+     {"name": "name", "type": ["string", "null"]},
+     {"name": "age",  "type": ["int", "null"]},
+     {"name": "point", "type": ["float", "null"]}
+ ]
+}
