@@ -3,8 +3,10 @@
  "name": "WriteUserSchema",
  "fields": [
      {"name": "id", "type": "int"},
-     {"name": "name", "type": ["string", "null"]},
-     {"name": "age",  "type": ["int", "null"]},
-     {"name": "point", "type": ["float", "null"]}
+     {"name": "first_name", "type": ["string", "null"]},
+     {"name": "last_name", "type": ["string", "null"]},
+     {"name": "email", "type": ["string", "null"]},
+     {"name": "buy_date",  "type": ["long", "null"], "logicalType": "date"},
+     {"name": "points", "type": ["float", "null"]}
  ]
 }

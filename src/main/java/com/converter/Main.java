@@ -5,13 +5,17 @@ import org.apache.avro.Schema;
 
 // Hadoop stuff
 import org.apache.avro.generic.GenericRecord;
+import org.apache.avro.specific.SpecificData;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 
 // Generic Parquet dependencies
 import org.apache.parquet.hadoop.ParquetInputFormat;
 import org.apache.parquet.hadoop.ParquetReader;
+import org.apache.parquet.hadoop.api.WriteSupport;
+import org.apache.parquet.hadoop.util.HadoopOutputFile;
 import org.apache.parquet.io.OutputFile;
+import org.apache.parquet.io.PositionOutputStream;
 import org.apache.parquet.schema.MessageType;
 import org.apache.parquet.hadoop.metadata.CompressionCodecName;
 import org.apache.parquet.hadoop.ParquetWriter;
@@ -26,7 +30,13 @@ import org.apache.parquet.example.data.Group;
 import org.apache.parquet.hadoop.example.GroupReadSupport;
 import org.apache.parquet.filter2.compat.FilterCompat;
 
+import java.io.IOException;
 import java.sql.*;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.ZoneId;
+import java.util.Locale;
 
 import static org.apache.parquet.filter2.predicate.FilterApi.*;
 
@@ -42,14 +52,6 @@ public class Main {
         int pageSize  = 65535;
 
         convert(outputPath, writeAvroSchema, blockSize, pageSize);
-
-//        WriteUserSchema [] data =  new WriteUserSchema[] {
-//            new WriteUserSchema(1, "Joe", 10, 7.3F),
-//            new WriteUserSchema(2,"Tim", 12, 7.2F),
-//            new WriteUserSchema(3, "Jordan", 13, 7.1F),
-//        };
-//        write(data, outputPath, writeAvroSchema, blockSize, pageSize);
-//        read(outputPath, readSchema);
     }
 
     private static void write(WriteUserSchema[] data, Path path, Schema schema, int blockSize, int pageSize) {
@@ -93,13 +95,21 @@ public class Main {
             Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/demo","user","Password123");
 
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from mytable");
+            ResultSet rs = stmt.executeQuery("select * from MOCK_DATA");
             while(rs.next()) {
                 int    id    = rs.getInt(1);
-                String name  = rs.getString(2);
-                int    age   = rs.getInt(3);
-                float  point = rs.getFloat(4);
-                WriteUserSchema u = new WriteUserSchema(id, name, age, point);
+                String first_name = rs.getString(2);
+                String last_name  = rs.getString(3);
+                String email      =  rs.getString(4);
+                long   buy_date   = Helper.dateToUnixDay(rs.getDate(5));
+                float  points     = rs.getFloat(6);
+                WriteUserSchema u = new WriteUserSchema(
+                        id,
+                        first_name,
+                        last_name,
+                        email,
+                        buy_date,
+                        points);
                 parquetWriter.write(u);
             }
 

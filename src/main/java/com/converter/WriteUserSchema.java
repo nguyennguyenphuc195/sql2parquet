@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class WriteUserSchema extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -8850376337360812738L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"WriteUserSchema\",\"namespace\":\"com.converter\",\"fields\":[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"name\",\"type\":[\"string\",\"null\"]},{\"name\":\"age\",\"type\":[\"int\",\"null\"]},{\"name\":\"point\",\"type\":[\"float\",\"null\"]}]}");
+  private static final long serialVersionUID = 2692121673203675513L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"WriteUserSchema\",\"namespace\":\"com.converter\",\"fields\":[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"first_name\",\"type\":[\"string\",\"null\"]},{\"name\":\"last_name\",\"type\":[\"string\",\"null\"]},{\"name\":\"email\",\"type\":[\"string\",\"null\"]},{\"name\":\"buy_date\",\"type\":[\"long\",\"null\"],\"logicalType\":\"date\"},{\"name\":\"points\",\"type\":[\"float\",\"null\"]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -72,9 +72,11 @@ public class WriteUserSchema extends org.apache.avro.specific.SpecificRecordBase
   }
 
    private int id;
-   private java.lang.CharSequence name;
-   private java.lang.Integer age;
-   private java.lang.Float point;
+   private java.lang.CharSequence first_name;
+   private java.lang.CharSequence last_name;
+   private java.lang.CharSequence email;
+   private java.lang.Long buy_date;
+   private java.lang.Float points;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -86,15 +88,19 @@ public class WriteUserSchema extends org.apache.avro.specific.SpecificRecordBase
   /**
    * All-args constructor.
    * @param id The new value for id
-   * @param name The new value for name
-   * @param age The new value for age
-   * @param point The new value for point
+   * @param first_name The new value for first_name
+   * @param last_name The new value for last_name
+   * @param email The new value for email
+   * @param buy_date The new value for buy_date
+   * @param points The new value for points
    */
-  public WriteUserSchema(java.lang.Integer id, java.lang.CharSequence name, java.lang.Integer age, java.lang.Float point) {
+  public WriteUserSchema(java.lang.Integer id, java.lang.CharSequence first_name, java.lang.CharSequence last_name, java.lang.CharSequence email, java.lang.Long buy_date, java.lang.Float points) {
     this.id = id;
-    this.name = name;
-    this.age = age;
-    this.point = point;
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.buy_date = buy_date;
+    this.points = points;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -103,9 +109,11 @@ public class WriteUserSchema extends org.apache.avro.specific.SpecificRecordBase
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return id;
-    case 1: return name;
-    case 2: return age;
-    case 3: return point;
+    case 1: return first_name;
+    case 2: return last_name;
+    case 3: return email;
+    case 4: return buy_date;
+    case 5: return points;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -115,9 +123,11 @@ public class WriteUserSchema extends org.apache.avro.specific.SpecificRecordBase
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: id = (java.lang.Integer)value$; break;
-    case 1: name = (java.lang.CharSequence)value$; break;
-    case 2: age = (java.lang.Integer)value$; break;
-    case 3: point = (java.lang.Float)value$; break;
+    case 1: first_name = (java.lang.CharSequence)value$; break;
+    case 2: last_name = (java.lang.CharSequence)value$; break;
+    case 3: email = (java.lang.CharSequence)value$; break;
+    case 4: buy_date = (java.lang.Long)value$; break;
+    case 5: points = (java.lang.Float)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -140,54 +150,88 @@ public class WriteUserSchema extends org.apache.avro.specific.SpecificRecordBase
   }
 
   /**
-   * Gets the value of the 'name' field.
-   * @return The value of the 'name' field.
+   * Gets the value of the 'first_name' field.
+   * @return The value of the 'first_name' field.
    */
-  public java.lang.CharSequence getName() {
-    return name;
+  public java.lang.CharSequence getFirstName() {
+    return first_name;
   }
 
 
   /**
-   * Sets the value of the 'name' field.
+   * Sets the value of the 'first_name' field.
    * @param value the value to set.
    */
-  public void setName(java.lang.CharSequence value) {
-    this.name = value;
+  public void setFirstName(java.lang.CharSequence value) {
+    this.first_name = value;
   }
 
   /**
-   * Gets the value of the 'age' field.
-   * @return The value of the 'age' field.
+   * Gets the value of the 'last_name' field.
+   * @return The value of the 'last_name' field.
    */
-  public java.lang.Integer getAge() {
-    return age;
+  public java.lang.CharSequence getLastName() {
+    return last_name;
   }
 
 
   /**
-   * Sets the value of the 'age' field.
+   * Sets the value of the 'last_name' field.
    * @param value the value to set.
    */
-  public void setAge(java.lang.Integer value) {
-    this.age = value;
+  public void setLastName(java.lang.CharSequence value) {
+    this.last_name = value;
   }
 
   /**
-   * Gets the value of the 'point' field.
-   * @return The value of the 'point' field.
+   * Gets the value of the 'email' field.
+   * @return The value of the 'email' field.
    */
-  public java.lang.Float getPoint() {
-    return point;
+  public java.lang.CharSequence getEmail() {
+    return email;
   }
 
 
   /**
-   * Sets the value of the 'point' field.
+   * Sets the value of the 'email' field.
    * @param value the value to set.
    */
-  public void setPoint(java.lang.Float value) {
-    this.point = value;
+  public void setEmail(java.lang.CharSequence value) {
+    this.email = value;
+  }
+
+  /**
+   * Gets the value of the 'buy_date' field.
+   * @return The value of the 'buy_date' field.
+   */
+  public java.lang.Long getBuyDate() {
+    return buy_date;
+  }
+
+
+  /**
+   * Sets the value of the 'buy_date' field.
+   * @param value the value to set.
+   */
+  public void setBuyDate(java.lang.Long value) {
+    this.buy_date = value;
+  }
+
+  /**
+   * Gets the value of the 'points' field.
+   * @return The value of the 'points' field.
+   */
+  public java.lang.Float getPoints() {
+    return points;
+  }
+
+
+  /**
+   * Sets the value of the 'points' field.
+   * @param value the value to set.
+   */
+  public void setPoints(java.lang.Float value) {
+    this.points = value;
   }
 
   /**
@@ -232,9 +276,11 @@ public class WriteUserSchema extends org.apache.avro.specific.SpecificRecordBase
     implements org.apache.avro.data.RecordBuilder<WriteUserSchema> {
 
     private int id;
-    private java.lang.CharSequence name;
-    private java.lang.Integer age;
-    private java.lang.Float point;
+    private java.lang.CharSequence first_name;
+    private java.lang.CharSequence last_name;
+    private java.lang.CharSequence email;
+    private java.lang.Long buy_date;
+    private java.lang.Float points;
 
     /** Creates a new Builder */
     private Builder() {
@@ -251,17 +297,25 @@ public class WriteUserSchema extends org.apache.avro.specific.SpecificRecordBase
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.name)) {
-        this.name = data().deepCopy(fields()[1].schema(), other.name);
+      if (isValidValue(fields()[1], other.first_name)) {
+        this.first_name = data().deepCopy(fields()[1].schema(), other.first_name);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.age)) {
-        this.age = data().deepCopy(fields()[2].schema(), other.age);
+      if (isValidValue(fields()[2], other.last_name)) {
+        this.last_name = data().deepCopy(fields()[2].schema(), other.last_name);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.point)) {
-        this.point = data().deepCopy(fields()[3].schema(), other.point);
+      if (isValidValue(fields()[3], other.email)) {
+        this.email = data().deepCopy(fields()[3].schema(), other.email);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
+      }
+      if (isValidValue(fields()[4], other.buy_date)) {
+        this.buy_date = data().deepCopy(fields()[4].schema(), other.buy_date);
+        fieldSetFlags()[4] = other.fieldSetFlags()[4];
+      }
+      if (isValidValue(fields()[5], other.points)) {
+        this.points = data().deepCopy(fields()[5].schema(), other.points);
+        fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
     }
 
@@ -275,17 +329,25 @@ public class WriteUserSchema extends org.apache.avro.specific.SpecificRecordBase
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.name)) {
-        this.name = data().deepCopy(fields()[1].schema(), other.name);
+      if (isValidValue(fields()[1], other.first_name)) {
+        this.first_name = data().deepCopy(fields()[1].schema(), other.first_name);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.age)) {
-        this.age = data().deepCopy(fields()[2].schema(), other.age);
+      if (isValidValue(fields()[2], other.last_name)) {
+        this.last_name = data().deepCopy(fields()[2].schema(), other.last_name);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.point)) {
-        this.point = data().deepCopy(fields()[3].schema(), other.point);
+      if (isValidValue(fields()[3], other.email)) {
+        this.email = data().deepCopy(fields()[3].schema(), other.email);
         fieldSetFlags()[3] = true;
+      }
+      if (isValidValue(fields()[4], other.buy_date)) {
+        this.buy_date = data().deepCopy(fields()[4].schema(), other.buy_date);
+        fieldSetFlags()[4] = true;
+      }
+      if (isValidValue(fields()[5], other.points)) {
+        this.points = data().deepCopy(fields()[5].schema(), other.points);
+        fieldSetFlags()[5] = true;
       }
     }
 
@@ -329,122 +391,202 @@ public class WriteUserSchema extends org.apache.avro.specific.SpecificRecordBase
     }
 
     /**
-      * Gets the value of the 'name' field.
+      * Gets the value of the 'first_name' field.
       * @return The value.
       */
-    public java.lang.CharSequence getName() {
-      return name;
+    public java.lang.CharSequence getFirstName() {
+      return first_name;
     }
 
 
     /**
-      * Sets the value of the 'name' field.
-      * @param value The value of 'name'.
+      * Sets the value of the 'first_name' field.
+      * @param value The value of 'first_name'.
       * @return This builder.
       */
-    public com.converter.WriteUserSchema.Builder setName(java.lang.CharSequence value) {
+    public com.converter.WriteUserSchema.Builder setFirstName(java.lang.CharSequence value) {
       validate(fields()[1], value);
-      this.name = value;
+      this.first_name = value;
       fieldSetFlags()[1] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'name' field has been set.
-      * @return True if the 'name' field has been set, false otherwise.
+      * Checks whether the 'first_name' field has been set.
+      * @return True if the 'first_name' field has been set, false otherwise.
       */
-    public boolean hasName() {
+    public boolean hasFirstName() {
       return fieldSetFlags()[1];
     }
 
 
     /**
-      * Clears the value of the 'name' field.
+      * Clears the value of the 'first_name' field.
       * @return This builder.
       */
-    public com.converter.WriteUserSchema.Builder clearName() {
-      name = null;
+    public com.converter.WriteUserSchema.Builder clearFirstName() {
+      first_name = null;
       fieldSetFlags()[1] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'age' field.
+      * Gets the value of the 'last_name' field.
       * @return The value.
       */
-    public java.lang.Integer getAge() {
-      return age;
+    public java.lang.CharSequence getLastName() {
+      return last_name;
     }
 
 
     /**
-      * Sets the value of the 'age' field.
-      * @param value The value of 'age'.
+      * Sets the value of the 'last_name' field.
+      * @param value The value of 'last_name'.
       * @return This builder.
       */
-    public com.converter.WriteUserSchema.Builder setAge(java.lang.Integer value) {
+    public com.converter.WriteUserSchema.Builder setLastName(java.lang.CharSequence value) {
       validate(fields()[2], value);
-      this.age = value;
+      this.last_name = value;
       fieldSetFlags()[2] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'age' field has been set.
-      * @return True if the 'age' field has been set, false otherwise.
+      * Checks whether the 'last_name' field has been set.
+      * @return True if the 'last_name' field has been set, false otherwise.
       */
-    public boolean hasAge() {
+    public boolean hasLastName() {
       return fieldSetFlags()[2];
     }
 
 
     /**
-      * Clears the value of the 'age' field.
+      * Clears the value of the 'last_name' field.
       * @return This builder.
       */
-    public com.converter.WriteUserSchema.Builder clearAge() {
-      age = null;
+    public com.converter.WriteUserSchema.Builder clearLastName() {
+      last_name = null;
       fieldSetFlags()[2] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'point' field.
+      * Gets the value of the 'email' field.
       * @return The value.
       */
-    public java.lang.Float getPoint() {
-      return point;
+    public java.lang.CharSequence getEmail() {
+      return email;
     }
 
 
     /**
-      * Sets the value of the 'point' field.
-      * @param value The value of 'point'.
+      * Sets the value of the 'email' field.
+      * @param value The value of 'email'.
       * @return This builder.
       */
-    public com.converter.WriteUserSchema.Builder setPoint(java.lang.Float value) {
+    public com.converter.WriteUserSchema.Builder setEmail(java.lang.CharSequence value) {
       validate(fields()[3], value);
-      this.point = value;
+      this.email = value;
       fieldSetFlags()[3] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'point' field has been set.
-      * @return True if the 'point' field has been set, false otherwise.
+      * Checks whether the 'email' field has been set.
+      * @return True if the 'email' field has been set, false otherwise.
       */
-    public boolean hasPoint() {
+    public boolean hasEmail() {
       return fieldSetFlags()[3];
     }
 
 
     /**
-      * Clears the value of the 'point' field.
+      * Clears the value of the 'email' field.
       * @return This builder.
       */
-    public com.converter.WriteUserSchema.Builder clearPoint() {
-      point = null;
+    public com.converter.WriteUserSchema.Builder clearEmail() {
+      email = null;
       fieldSetFlags()[3] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'buy_date' field.
+      * @return The value.
+      */
+    public java.lang.Long getBuyDate() {
+      return buy_date;
+    }
+
+
+    /**
+      * Sets the value of the 'buy_date' field.
+      * @param value The value of 'buy_date'.
+      * @return This builder.
+      */
+    public com.converter.WriteUserSchema.Builder setBuyDate(java.lang.Long value) {
+      validate(fields()[4], value);
+      this.buy_date = value;
+      fieldSetFlags()[4] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'buy_date' field has been set.
+      * @return True if the 'buy_date' field has been set, false otherwise.
+      */
+    public boolean hasBuyDate() {
+      return fieldSetFlags()[4];
+    }
+
+
+    /**
+      * Clears the value of the 'buy_date' field.
+      * @return This builder.
+      */
+    public com.converter.WriteUserSchema.Builder clearBuyDate() {
+      buy_date = null;
+      fieldSetFlags()[4] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'points' field.
+      * @return The value.
+      */
+    public java.lang.Float getPoints() {
+      return points;
+    }
+
+
+    /**
+      * Sets the value of the 'points' field.
+      * @param value The value of 'points'.
+      * @return This builder.
+      */
+    public com.converter.WriteUserSchema.Builder setPoints(java.lang.Float value) {
+      validate(fields()[5], value);
+      this.points = value;
+      fieldSetFlags()[5] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'points' field has been set.
+      * @return True if the 'points' field has been set, false otherwise.
+      */
+    public boolean hasPoints() {
+      return fieldSetFlags()[5];
+    }
+
+
+    /**
+      * Clears the value of the 'points' field.
+      * @return This builder.
+      */
+    public com.converter.WriteUserSchema.Builder clearPoints() {
+      points = null;
+      fieldSetFlags()[5] = false;
       return this;
     }
 
@@ -454,9 +596,11 @@ public class WriteUserSchema extends org.apache.avro.specific.SpecificRecordBase
       try {
         WriteUserSchema record = new WriteUserSchema();
         record.id = fieldSetFlags()[0] ? this.id : (java.lang.Integer) defaultValue(fields()[0]);
-        record.name = fieldSetFlags()[1] ? this.name : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.age = fieldSetFlags()[2] ? this.age : (java.lang.Integer) defaultValue(fields()[2]);
-        record.point = fieldSetFlags()[3] ? this.point : (java.lang.Float) defaultValue(fields()[3]);
+        record.first_name = fieldSetFlags()[1] ? this.first_name : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.last_name = fieldSetFlags()[2] ? this.last_name : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.email = fieldSetFlags()[3] ? this.email : (java.lang.CharSequence) defaultValue(fields()[3]);
+        record.buy_date = fieldSetFlags()[4] ? this.buy_date : (java.lang.Long) defaultValue(fields()[4]);
+        record.points = fieldSetFlags()[5] ? this.points : (java.lang.Float) defaultValue(fields()[5]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -491,28 +635,44 @@ public class WriteUserSchema extends org.apache.avro.specific.SpecificRecordBase
   {
     out.writeInt(this.id);
 
-    if (this.name == null) {
+    if (this.first_name == null) {
       out.writeIndex(1);
       out.writeNull();
     } else {
       out.writeIndex(0);
-      out.writeString(this.name);
+      out.writeString(this.first_name);
     }
 
-    if (this.age == null) {
+    if (this.last_name == null) {
       out.writeIndex(1);
       out.writeNull();
     } else {
       out.writeIndex(0);
-      out.writeInt(this.age);
+      out.writeString(this.last_name);
     }
 
-    if (this.point == null) {
+    if (this.email == null) {
       out.writeIndex(1);
       out.writeNull();
     } else {
       out.writeIndex(0);
-      out.writeFloat(this.point);
+      out.writeString(this.email);
+    }
+
+    if (this.buy_date == null) {
+      out.writeIndex(1);
+      out.writeNull();
+    } else {
+      out.writeIndex(0);
+      out.writeLong(this.buy_date);
+    }
+
+    if (this.points == null) {
+      out.writeIndex(1);
+      out.writeNull();
+    } else {
+      out.writeIndex(0);
+      out.writeFloat(this.points);
     }
 
   }
@@ -526,27 +686,41 @@ public class WriteUserSchema extends org.apache.avro.specific.SpecificRecordBase
 
       if (in.readIndex() != 0) {
         in.readNull();
-        this.name = null;
+        this.first_name = null;
       } else {
-        this.name = in.readString(this.name instanceof Utf8 ? (Utf8)this.name : null);
+        this.first_name = in.readString(this.first_name instanceof Utf8 ? (Utf8)this.first_name : null);
       }
 
       if (in.readIndex() != 0) {
         in.readNull();
-        this.age = null;
+        this.last_name = null;
       } else {
-        this.age = in.readInt();
+        this.last_name = in.readString(this.last_name instanceof Utf8 ? (Utf8)this.last_name : null);
       }
 
       if (in.readIndex() != 0) {
         in.readNull();
-        this.point = null;
+        this.email = null;
       } else {
-        this.point = in.readFloat();
+        this.email = in.readString(this.email instanceof Utf8 ? (Utf8)this.email : null);
+      }
+
+      if (in.readIndex() != 0) {
+        in.readNull();
+        this.buy_date = null;
+      } else {
+        this.buy_date = in.readLong();
+      }
+
+      if (in.readIndex() != 0) {
+        in.readNull();
+        this.points = null;
+      } else {
+        this.points = in.readFloat();
       }
 
     } else {
-      for (int i = 0; i < 4; i++) {
+      for (int i = 0; i < 6; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.id = in.readInt();
@@ -555,27 +729,45 @@ public class WriteUserSchema extends org.apache.avro.specific.SpecificRecordBase
         case 1:
           if (in.readIndex() != 0) {
             in.readNull();
-            this.name = null;
+            this.first_name = null;
           } else {
-            this.name = in.readString(this.name instanceof Utf8 ? (Utf8)this.name : null);
+            this.first_name = in.readString(this.first_name instanceof Utf8 ? (Utf8)this.first_name : null);
           }
           break;
 
         case 2:
           if (in.readIndex() != 0) {
             in.readNull();
-            this.age = null;
+            this.last_name = null;
           } else {
-            this.age = in.readInt();
+            this.last_name = in.readString(this.last_name instanceof Utf8 ? (Utf8)this.last_name : null);
           }
           break;
 
         case 3:
           if (in.readIndex() != 0) {
             in.readNull();
-            this.point = null;
+            this.email = null;
           } else {
-            this.point = in.readFloat();
+            this.email = in.readString(this.email instanceof Utf8 ? (Utf8)this.email : null);
+          }
+          break;
+
+        case 4:
+          if (in.readIndex() != 0) {
+            in.readNull();
+            this.buy_date = null;
+          } else {
+            this.buy_date = in.readLong();
+          }
+          break;
+
+        case 5:
+          if (in.readIndex() != 0) {
+            in.readNull();
+            this.points = null;
+          } else {
+            this.points = in.readFloat();
           }
           break;
 
